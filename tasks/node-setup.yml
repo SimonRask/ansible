@@ -1,0 +1,35 @@
+- name: Check that nvm is in PATH
+  command: "which nvm"
+  register: nvm_check
+  ignore_errors: yes
+
+- name: Install nvm
+  command: fish -c "fisher install jorgebucaran/nvm.fish"
+  become_user: "{{ ansible_user }}"
+  when: nvm_check.rc != 0
+
+- name: Install node
+  command: fish -c "nvm install lts"
+  become_user: "{{ ansible_user }}"
+  when: nvm_check.rc != 0
+
+- name: Use lts as default
+  command: fish -c "set -Ux nvm_default_version lts"
+  become_user: "{{ ansible_user }}"
+  when: nvm_check.rc != 0
+
+- name: Install yarn
+  command: fish -c "nvm use lts && npm install -g yarn"
+  become_user: "{{ ansible_user }}"
+  when: nvm_check.rc != 0
+
+- name: Update global yarn packages
+  command: fish -c "nvm use lts && yarn global upgrade"
+  become_user: "{{ ansible_user }}"
+  when: nvm_check.rc != 0
+
+- name: Add yarn bin to fish path
+  command: fish -c "fish_add_path ~/.yarn/bin"
+  become_user: "{{ ansible_user }}"
+  ignore_errors: yes
+  when: nvm_check.rc != 0

@@ -1,0 +1,33 @@
+- name: Check if yay is in PATH
+  command: "which yay"
+  register: yay_check
+  ignore_errors: yes
+
+- name: Make sure dependencies are installed
+  community.general.pacman:
+    name:
+      - git
+      - base-devel
+      - go
+  become: yes
+  when: yay_check.rc != 0
+
+- name: Clone yay repository
+  git:
+    repo: "https://aur.archlinux.org/yay-bin.git"
+    dest: "~/yay"
+    version: master
+  become_user: "{{ ansible_user }}"
+  when: yay_check.rc != 0
+
+- name: Build and install yay
+  command: makepkg -si --noconfirm
+  args:
+    chdir: "~/yay"
+  become_user: "{{ ansible_user }}"
+  when: yay_check.rc != 0
+
+- name: Use yay for updating yay
+  command: yay -S yay-bin --noconfirm
+  when: yay_check.rc != 0
+

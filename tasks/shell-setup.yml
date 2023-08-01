@@ -1,0 +1,28 @@
+- name: Dependencies
+  community.general.pacman:
+    name:
+      - fish
+  become: yes
+
+- name: Find fish path
+  shell: which fish
+  register: fish_path
+
+- name: Change shell to fish
+  shell: chsh -s {{ fish_path.stdout }} {{ ansible_user }}
+  become: yes
+
+- name: Check that fisher is in PATH
+  command: "which fisher"
+  register: fisher_check
+  ignore_errors: yes
+
+- name: Install fisher for fish
+  command: fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher"
+  become_user: "{{ ansible_user }}"
+  when: fisher_check.rc != 0
+
+- name: Update fisher packages
+  command: fish -c "fisher update"
+  become_user: "{{ ansible_user }}"
+
