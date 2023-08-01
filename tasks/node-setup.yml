@@ -1,5 +1,5 @@
 - name: Check that nvm is in PATH
-  command: "which nvm"
+  command: fish -c "nvm"
   register: nvm_check
   ignore_errors: yes
 

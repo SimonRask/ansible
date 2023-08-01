@@ -1,15 +1,23 @@
+- name: Check if pop shell is installed
+  command: fish -c "gnome-extensions list | grep pop-shell@system76.com"
+  register: pop_shell_installed
+  ignore_errors: true
+
 - name: Install typescript
   command: fish -c "nvm use lts && yarn global add typescript"
   become_user: "{{ ansible_user }}"
+  when: pop_shell_installed.rc != 0
 
 - name: Clone pop shell repo
   git:
     repo: "https://github.com/pop-os/shell"
     dest: "~/pop-shell"
-    version: master_jammy
   become_user: "{{ ansible_user }}"
+  when: pop_shell_installed.rc != 0
 
 - name: Install pop shell
-  command: echo y | make local-install
+  command: fish -c "echo y | make local-install"
   args:
     chdir: "~/pop-shell"
+  become_user: "{{ ansible_user }}"
+  when: pop_shell_installed.rc != 0

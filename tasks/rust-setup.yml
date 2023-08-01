@@ -1,0 +1,19 @@
+- name: Check if rustup is installed
+  command: which rustup
+  register: rustup_installed
+  ignore_errors: true
+
+- name: Install rustup
+  command: fish -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
+  when: rustup_installed.rc != 0
+
+- name: Add rustup to path
+  command: fish -c "fish_add_path ~/.cargo/bin"
+  when: rustup_installed.rc != 0
+
+- name: Install rust
+  command: fish -c "rustup install stable"
+  when: rustup_installed.rc != 0
+
+- name: Update rust
+  command: fish -c "rustup update"

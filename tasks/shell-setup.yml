@@ -12,8 +12,8 @@
   shell: chsh -s {{ fish_path.stdout }} {{ ansible_user }}
   become: yes
 
-- name: Check that fisher is in PATH
-  command: "which fisher"
+- name: Check that fisher is installed
+  command: fish -c "fisher"
   register: fisher_check
   ignore_errors: yes
 

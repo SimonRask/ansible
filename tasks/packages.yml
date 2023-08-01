@@ -2,28 +2,23 @@
   community.general.pacman:
     update_cache: true
     upgrade: true
-  tags:
-    - install
-    - core
   become: yes
 
-- name: Check if code is in PATH
-  command: "which code"
-  register: code_check
-  ignore_errors: yes
-
-- name: Install code
-  command: yay -S visual-studio-code-bin --noconfirm
-  become_user: "{{ ansible_user }}"
-  when: code_check.rc != 0
+- name: AUR packages
+  command: yay -S {{ item }} --noconfirm
+  with_items:
+    - visual-studio-code-bin
+    - gnome-shell-extension-caffeine-git
 
 - name: Pacman packages
   community.general.pacman:
     name:
-      - firefox
       - alacritty
+      - base-devel
+      - discord
       - evince
       - exa
+      - firefox
       - fish
       - foliate
       - git
@@ -32,10 +27,8 @@
       - pdftricks
       - tldr
       - ttc-iosevka
-      - xournalpp
-      - discord
-      - base-devel
       - ttf-hack-nerd
+      - xournalpp
   become: yes
 
 - name: Update yay packages

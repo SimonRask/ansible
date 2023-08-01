@@ -1,0 +1,13 @@
+- name: Change monospace font
+  command: gsettings set org.gnome.desktop.interface monospace-font-name 'Iosevka'
+  become_user: "{{ ansible_user }}"
+
+
+- name: Update shortcuts
+  command: fish tasks/shortcuts.fish
+
+- name: Tweaks
+  command: fish tasks/tweaks.fish
+
+- name: Extension settings
+  command: fish tasks/extension-settings.fish
