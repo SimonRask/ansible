@@ -22,7 +22,16 @@
   become_user: "{{ ansible_user }}"
   when: fisher_check.rc != 0
 
+- name: Install fisher packages
+  command: fish -c "fisher install {{ item }}"
+  with_items:
+    - jorgebucaran/autopair.fish
+    - nickeb96/puffer-fish
+    - franciscolourenco/done
+    - gazorby/fish-abbreviation-tips
+    - jorgebucaran/nvm.fish
+    - acomagu/fish-async-prompt
+
 - name: Update fisher packages
   command: fish -c "fisher update"
   become_user: "{{ ansible_user }}"
-

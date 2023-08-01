@@ -2,7 +2,6 @@
   command: gsettings set org.gnome.desktop.interface monospace-font-name 'Iosevka'
   become_user: "{{ ansible_user }}"
 
-
 - name: Update shortcuts
   command: fish tasks/shortcuts.fish
 
@@ -11,3 +10,23 @@
 
 - name: Extension settings
   command: fish tasks/extension-settings.fish
+
+- name: Ensure alacritty directory exists
+  file:
+    dest: "~/.config/alacritty"
+    state: directory
+
+- name: Move alacritty config
+  copy:
+    src: "config/alacritty.yml"
+    dest: "~/.config/alacritty/alacritty.yml"
+
+- name: Ensure fish directory exists
+  file:
+    dest: "~/.config/fish"
+    state: directory
+
+- name: Move fish config
+  copy:
+    src: "config/config.fish"
+    dest: "~/.config/fish/config.fish"
