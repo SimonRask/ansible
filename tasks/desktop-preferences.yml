@@ -30,3 +30,6 @@
   copy:
     src: "config/config.fish"
     dest: "~/.config/fish/config.fish"
+
+- name: Set gtk theme
+  command: fish -c "set -U GTK_THEME 'Adwaita-dark'"
