@@ -2,22 +2,21 @@
   command: fish -c "gnome-extensions list | grep pop-shell@system76.com"
   register: pop_shell_installed
   ignore_errors: true
+  become_user: "{{ ansible_user }}"
 
-- name: Install typescript
-  command: fish -c "nvm use lts && yarn global add typescript"
+- name: Pop shell installation
   become_user: "{{ ansible_user }}"
   when: pop_shell_installed.rc != 0
+  block:
+    - name: Install typescript
+      command: fish -c "nvm use lts && yarn global add typescript"
 
-- name: Clone pop shell repo
-  git:
-    repo: "https://github.com/pop-os/shell"
-    dest: "~/pop-shell"
-  become_user: "{{ ansible_user }}"
-  when: pop_shell_installed.rc != 0
+    - name: Clone pop shell repo
+      git:
+        repo: "https://github.com/pop-os/shell"
+        dest: "~/pop-shell"
 
-- name: Install pop shell
-  command: fish -c "echo y | make local-install"
-  args:
-    chdir: "~/pop-shell"
-  become_user: "{{ ansible_user }}"
-  when: pop_shell_installed.rc != 0
+    - name: Install pop shell
+      command: fish -c "echo y | make local-install"
+      args:
+        chdir: "~/pop-shell"

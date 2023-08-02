@@ -3,17 +3,17 @@
   register: rustup_installed
   ignore_errors: true
 
-- name: Install rustup
-  command: fish -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
+- name: Rustup installation
   when: rustup_installed.rc != 0
+  block:
+    - name: Install rustup
+      command: fish -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
 
-- name: Add rustup to path
-  command: fish -c "fish_add_path ~/.cargo/bin"
-  when: rustup_installed.rc != 0
+    - name: Add rustup to path
+      command: fish -c "fish_add_path ~/.cargo/bin"
 
-- name: Install rust
-  command: fish -c "rustup install stable"
-  when: rustup_installed.rc != 0
+    - name: Install rust
+      command: fish -c "rustup install stable"
 
 - name: Update rust
   command: fish -c "rustup update"

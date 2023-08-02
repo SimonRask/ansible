@@ -1,0 +1,22 @@
+- name: projects.yml
+  block:
+    - name: Ensure dev folder exists
+      file:
+        path: "~/dev"
+        state: directory
+
+    - name: Make sure mine folder exists
+      file:
+        path: "~/dev/mine"
+        state: directory
+
+    - name: Clone my projects
+      git:
+        repo: "git@github.com:SimonRask/{{ item }}.git"
+        dest: "~/dev/mine/{{ item }}"
+      ignore_errors: yes
+      with_items:
+        - "rusty-cas"
+        - "ansible"
+        - "keepuphub"
+        - "report-template"
