@@ -9,6 +9,7 @@
   with_items:
     - visual-studio-code-bin
     - gnome-shell-extension-caffeine-git
+    - gnome-shell-extension-blur-my-shell
 
 - name: Pacman packages
   community.general.pacman:
