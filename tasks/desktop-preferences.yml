@@ -33,3 +33,6 @@
 
 - name: Set gtk theme
   command: fish -c "set -U GTK_THEME 'Adwaita-dark'"
+
+- name: Set gtk theme (2)
+  command: fish -c "gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark"
