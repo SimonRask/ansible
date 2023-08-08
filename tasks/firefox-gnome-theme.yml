@@ -14,11 +14,9 @@
     dest: "~/firefox-gnome-theme"
     version: "v{{ firefox_version.stdout }}"
   become_user: "{{ ansible_user }}"
-  register: clone_repo
   ignore_errors: yes
 
 - name: Install gnome theme
-  when: clone_repo.rc == 0
   block:
     - name: Install theme
       command: bash install.sh

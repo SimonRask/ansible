@@ -36,3 +36,6 @@
 
 - name: Set gtk theme (2)
   command: fish -c "gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark"
+
+- name: Make nautilus default for opening folders
+  command: fish -c "xdg-mime default org.gnome.Nautilus.desktop inode/directory"

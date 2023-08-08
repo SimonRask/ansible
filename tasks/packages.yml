@@ -10,6 +10,7 @@
     - visual-studio-code-bin
     - gnome-shell-extension-caffeine-git
     - gnome-shell-extension-blur-my-shell
+    - spotify-adblock-git
 
 - name: Pacman packages
   community.general.pacman:
