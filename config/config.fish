@@ -14,12 +14,16 @@ set -U __done_notification_command "notify-send \$title \$message"
 set -U __done_notify_sound 1
 set -g fish_prompt_pwd_dir_length 3
 
+set -gx CDPATH . ~ ~/dev ~/dev/mine ~/dev/others
+
 function fish_prompt
-    set_color brblack
-    echo -n "["(date "+%H:%M")"] "
-    set_color blue
+    set_color green
+    echo -n (date "+%H:%M")" "
+    set_color grey
     printf $USER
+    set_color brblack
     printf "@"
+    set_color grey
     printf $hostname
     if [ $PWD != $HOME ]
         set_color brblack
@@ -29,8 +33,8 @@ function fish_prompt
     end
     set_color green
     printf '%s ' (__fish_git_prompt)
-    set_color red
-    echo -n '| '
+    set_color yellow
+    echo -n '> '
     set_color normal
 end
 
@@ -71,13 +75,10 @@ function fish_greeting
 		)
     echo
 
-    set r (random 0 100)
-    if [ $r -lt 5 ] # only occasionally show backlog (5%)
-        echo -e " \e[1mBacklog\e[0;32m"
-        set_color blue
-        echo "  [project] <description>"
-        echo
-    end
-
     set_color normal
+end
+
+
+function p
+    fish -c "cd ~/dev && ls mine others"
 end

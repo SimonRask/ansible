@@ -10,6 +10,11 @@
         path: "~/dev/mine"
         state: directory
 
+    - name: Make sure others folder exists
+      file:
+        path: "~/dev/others"
+        state: directory
+
     - name: Clone my projects
       git:
         repo: "git@github.com:SimonRask/{{ item }}.git"
