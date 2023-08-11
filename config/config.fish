@@ -82,3 +82,7 @@ end
 function p
     fish -c "cd ~/dev && ls mine others"
 end
+
+function c
+    code . && exit
+end
