@@ -2,19 +2,20 @@
   command: fish -c "nvm"
   register: nvm_check
   ignore_errors: yes
+  tags:
+    - wsl
 
 - name: nvm installation
   when: nvm_check.rc != 0
   become_user: "{{ ansible_user }}"
+  tags:
+    - wsl
   block:
     - name: Install nvm
       command: fish -c "fisher install jorgebucaran/nvm.fish"
 
     - name: Install node
       command: fish -c "nvm install lts"
-
-    - name: Use lts as default
-      command: fish -c "set -Ux nvm_default_version lts"
 
     - name: Install yarn
       command: fish -c "nvm use lts && npm install -g yarn"

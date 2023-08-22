@@ -7,31 +7,56 @@
 - name: Find fish path
   shell: which fish
   register: fish_path
+  tags:
+    - wsl
 
 - name: Change shell to fish
   shell: chsh -s {{ fish_path.stdout }} {{ ansible_user }}
   become: yes
+  tags:
+    - wsl
 
 - name: Check that fisher is installed
   command: fish -c "fisher"
   register: fisher_check
   ignore_errors: yes
+  tags:
+    - wsl
 
 - name: Install fisher for fish
   command: fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher"
   become_user: "{{ ansible_user }}"
   when: fisher_check.rc != 0
+  tags:
+    - wsl
 
 - name: Install fisher packages
   command: fish -c "fisher install {{ item }}"
   with_items:
     - jorgebucaran/autopair.fish
     - nickeb96/puffer-fish
-    - franciscolourenco/done
     - gazorby/fish-abbreviation-tips
     - jorgebucaran/nvm.fish
     - acomagu/fish-async-prompt
+  tags:
+    - wsl
 
 - name: Update fisher packages
   command: fish -c "fisher update"
   become_user: "{{ ansible_user }}"
+  tags:
+    - wsl
+
+- name: Ensure fish directory exists
+  file:
+    dest: "~/.config/fish"
+    state: directory
+  tags:
+    - wsl
+
+- name: Move fish config
+  copy:
+    src: "config/config.fish"
+    dest: "~/.config/fish/config.fish"
+  tags:
+    - wsl

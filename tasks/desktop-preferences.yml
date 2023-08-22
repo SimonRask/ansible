@@ -21,16 +21,6 @@
     src: "config/alacritty.yml"
     dest: "~/.config/alacritty/alacritty.yml"
 
-- name: Ensure fish directory exists
-  file:
-    dest: "~/.config/fish"
-    state: directory
-
-- name: Move fish config
-  copy:
-    src: "config/config.fish"
-    dest: "~/.config/fish/config.fish"
-
 - name: Set gtk theme
   command: fish -c "set -U GTK_THEME 'Adwaita-dark'"
 

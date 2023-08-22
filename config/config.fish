@@ -9,12 +9,10 @@ set __fish_git_prompt_showuntrackedfiles yes
 set __fish_git_prompt_showdirtystate yes
 set __fish_git_prompt_showstashstate ''
 set __fish_git_prompt_showupstream none
-set -U __done_allow_nongraphical 1
-set -U __done_notification_command "notify-send \$title \$message"
-set -U __done_notify_sound 1
-set -g fish_prompt_pwd_dir_length 3
 
+set -g fish_prompt_pwd_dir_length 3
 set -gx CDPATH . ~ ~/dev ~/dev/mine ~/dev/others
+set -Ux nvm_default_version lts
 
 function fish_prompt
     set_color green

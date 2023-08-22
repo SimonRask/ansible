@@ -9,11 +9,11 @@
     scope: global
     value: "simon.ras.and@gmail.com"
   tags:
-  - git
+    - wsl
 - name: Git setup name
   git_config:
     name: user.name
     scope: global
     value: "Simon Rask"
   tags:
-  - git
+    - wsl

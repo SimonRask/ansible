@@ -25,3 +25,5 @@
         - "ansible"
         - "keepuphub"
         - "report-template"
+  tags:
+    - wsl

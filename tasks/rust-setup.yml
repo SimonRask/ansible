@@ -2,9 +2,13 @@
   command: which rustup
   register: rustup_installed
   ignore_errors: true
+  tags:
+    - wsl
 
 - name: Rustup installation
   when: rustup_installed.rc != 0
+  tags:
+    - wsl
   block:
     - name: Install rustup
       command: fish -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
@@ -17,3 +21,5 @@
 
 - name: Update rust
   command: fish -c "rustup update"
+  tags:
+    - wsl 
