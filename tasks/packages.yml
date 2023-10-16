@@ -32,6 +32,7 @@
       - ttf-hack-nerd
       - xournalpp
       - neovim
+      - xclip
   become: yes
 
 - name: Update yay packages
