@@ -54,9 +54,10 @@
   tags:
     - wsl
 
-- name: Move fish config
-  copy:
-    src: "config/config.fish"
+- name: Create fish config symlink
+  file:
+    src: "{{ playbook_dir }}/config/config.fish"
     dest: "~/.config/fish/config.fish"
+    state: link
   tags:
     - wsl

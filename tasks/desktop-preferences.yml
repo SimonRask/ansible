@@ -16,10 +16,11 @@
     dest: "~/.config/alacritty"
     state: directory
 
-- name: Move alacritty config
-  copy:
-    src: "config/alacritty.yml"
+- name: Create alacritty symlink
+  file:
+    src: "{{ playbook_dir }}/config/alacritty.yml"
     dest: "~/.config/alacritty/alacritty.yml"
+    state: link
 
 - name: Set gtk theme
   command: fish -c "set -U GTK_THEME 'Adwaita-dark'"
