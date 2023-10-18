@@ -3,7 +3,7 @@ window:
 
 font:
   normal:
-    family: "Iosevka"
+    family: "Iosevka Nerd Font"
   size: 16.0
 
 colors:
