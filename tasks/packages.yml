@@ -11,29 +11,40 @@
     - gnome-shell-extension-caffeine-git
     - gnome-shell-extension-blur-my-shell
     - spotify-adblock-git
+  tags:
+    - desktop
 
-- name: Pacman packages
+- name: Pacman packages (desktop)
   community.general.pacman:
     name:
       - alacritty
-      - base-devel
       - discord
       - evince
-      - exa
       - firefox
-      - fish
       - foliate
+      - ttc-iosevka
+      - ttf-hack-nerd
+      - xournalpp
+  become: yes
+  tags:
+    - desktop
+
+- name: Pacman packages (nogui)
+  community.general.pacman:
+    name:
+      - base-devel
+      - exa
+      - fish
       - git
       - pdfslicer
       - pdftk
       - pdftricks
       - tldr
-      - ttc-iosevka
-      - ttf-hack-nerd
-      - xournalpp
       - neovim
       - xclip
+      - ripgrep
   become: yes
+
 
 - name: Update yay packages
   command: yay --noconfirm

@@ -27,3 +27,4 @@
         - "report-template"
   tags:
     - wsl
+    - ssh

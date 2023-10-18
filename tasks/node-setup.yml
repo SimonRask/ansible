@@ -1,17 +1,9 @@
-- name: Check that nvm is in PATH
-  command: fish -c "nvm"
-  register: nvm_check
-  ignore_errors: yes
-  tags:
-    - wsl
-
 - name: nvm installation
-  when: nvm_check.rc != 0
   become_user: "{{ ansible_user }}"
   tags:
     - wsl
   block:
-    - name: Install nvm
+    - name: Make sure dependencies are installed
       command: fish -c "fisher install jorgebucaran/nvm.fish"
 
     - name: Install node

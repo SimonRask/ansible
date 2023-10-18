@@ -1,32 +1,35 @@
-- name: Change monospace font
-  command: gsettings set org.gnome.desktop.interface monospace-font-name 'Iosevka'
-  become_user: "{{ ansible_user }}"
+- name: Desktop preferences
+  tags: desktop
+  block:
+    - name: Change monospace font
+      command: gsettings set org.gnome.desktop.interface monospace-font-name 'Iosevka'
+      become_user: "{{ ansible_user }}"
 
-- name: Update shortcuts
-  command: fish tasks/shortcuts.fish
+    - name: Update shortcuts
+      command: fish tasks/shortcuts.fish
 
-- name: Tweaks
-  command: fish tasks/tweaks.fish
+    - name: Tweaks
+      command: fish tasks/tweaks.fish
 
-- name: Extension settings
-  command: fish tasks/extension-settings.fish
+    - name: Extension settings
+      command: fish tasks/extension-settings.fish
 
-- name: Ensure alacritty directory exists
-  file:
-    dest: "~/.config/alacritty"
-    state: directory
+    - name: Ensure alacritty directory exists
+      file:
+        dest: "~/.config/alacritty"
+        state: directory
 
-- name: Create alacritty symlink
-  file:
-    src: "{{ playbook_dir }}/config/alacritty.yml"
-    dest: "~/.config/alacritty/alacritty.yml"
-    state: link
+    - name: Create alacritty symlink
+      file:
+        src: "{{ playbook_dir }}/config/alacritty.yml"
+        dest: "~/.config/alacritty/alacritty.yml"
+        state: link
 
-- name: Set gtk theme
-  command: fish -c "set -U GTK_THEME 'Adwaita-dark'"
+    - name: Set gtk theme
+      command: fish -c "set -U GTK_THEME 'Adwaita-dark'"
 
-- name: Set gtk theme (2)
-  command: fish -c "gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark"
+    - name: Set gtk theme (2)
+      command: fish -c "gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark"
 
-- name: Make nautilus default for opening folders
-  command: fish -c "xdg-mime default org.gnome.Nautilus.desktop inode/directory"
+    - name: Make nautilus default for opening folders
+      command: fish -c "xdg-mime default org.gnome.Nautilus.desktop inode/directory"

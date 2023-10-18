@@ -1,39 +1,43 @@
-- name: Dependencies
-  community.general.pacman:
-    name:
-      - firefox
-  become: yes
-
-- name: Get firefox version
-  command: fish -c "firefox --version | cut -d ' ' -f 3 | cut -d '.' -f 1"
-  register: firefox_version
-
-- name: Clone repo
-  git:
-    repo: "https://github.com/rafaelmardojai/firefox-gnome-theme"
-    dest: "~/firefox-gnome-theme"
-    version: "v{{ firefox_version.stdout }}"
-  become_user: "{{ ansible_user }}"
-  ignore_errors: yes
-
-- name: Install gnome theme
+- name: Firefox gnome theme
+  tags:
+    - desktop
   block:
-    - name: Install theme
-      command: bash install.sh
-      args:
-        chdir: "~/firefox-gnome-theme/scripts"
+    - name: Dependencies
+      community.general.pacman:
+        name:
+          - firefox
+      become: yes
 
-    - name: Current directory
-      command: pwd
-      register: current_dir
+    - name: Get firefox version
+      command: fish -c "firefox --version | cut -d ' ' -f 3 | cut -d '.' -f 1"
+      register: firefox_version
 
-    - name: Get location of firefox user.js file
-      command: fish -c "ls ~/.mozilla/firefox | grep .default"
-      register: user_js_folders
-
-    - name: Configure firefox (gnomeTheme.hideSingleTab in about:config)
-      command: "{{ current_dir.stdout }}/tasks/ffset.sh gnomeTheme.hideSingleTab true"
+    - name: Clone repo
+      git:
+        repo: "https://github.com/rafaelmardojai/firefox-gnome-theme"
+        dest: "~/firefox-gnome-theme"
+        version: "v{{ firefox_version.stdout }}"
       become_user: "{{ ansible_user }}"
-      args:
-        chdir: "~/.mozilla/firefox/{{ item }}"
-      with_items: "{{ user_js_folders.stdout_lines }}"
+      ignore_errors: yes
+
+    - name: Install gnome theme
+      block:
+        - name: Install theme
+          command: bash install.sh
+          args:
+            chdir: "~/firefox-gnome-theme/scripts"
+
+        - name: Current directory
+          command: pwd
+          register: current_dir
+
+        - name: Get location of firefox user.js file
+          command: fish -c "ls ~/.mozilla/firefox | grep .default"
+          register: user_js_folders
+
+        - name: Configure firefox (gnomeTheme.hideSingleTab in about:config)
+          command: "{{ current_dir.stdout }}/tasks/ffset.sh gnomeTheme.hideSingleTab true"
+          become_user: "{{ ansible_user }}"
+          args:
+            chdir: "~/.mozilla/firefox/{{ item }}"
+          with_items: "{{ user_js_folders.stdout_lines }}"

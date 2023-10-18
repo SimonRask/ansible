@@ -20,3 +20,5 @@
       command: fish -c "echo y | make local-install"
       args:
         chdir: "~/pop-shell"
+  tags:
+    - desktop
