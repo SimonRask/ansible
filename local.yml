@@ -9,6 +9,7 @@
     - include: tasks/git-setup.yml
     - include: tasks/packages.yml
     - include: tasks/shell-setup.yml
+    - include: tasks/helix.yml
     - include: tasks/neovim.yml
     - include: tasks/node-setup.yml
     - include: tasks/pop-shell-setup.yml

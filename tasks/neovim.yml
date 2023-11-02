@@ -2,7 +2,6 @@
   file:
     src: "{{ playbook_dir }}/config/nvim"
     dest: "~/.config/nvim"
-    force: yes
     state: link
   tags:
     - neovim

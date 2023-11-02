@@ -84,3 +84,20 @@ end
 function c
     code . && exit
 end
+
+function gh-pdf
+    set pr_number $argv[1]
+    
+    set build_url (gh pr checks $pr_number | awk '{print $4}')
+    set run_id (echo $build_url | grep -oP '(?<=runs/)\d+')
+    
+    echo "Build URL: $build_url"
+    echo "Run ID: $run_id"
+
+    set download_path "/tmp/$run_id"
+    mkdir -p $download_path
+    gh run download $run_id --dir $download_path
+    
+    # Open the main.pdf
+    evince "$download_path/PDF/main.pdf"
+end

@@ -1,0 +1,7 @@
+- name: Symlink helix config
+  file:
+    src: "{{ playbook_dir }}/config/helix"
+    dest: "~/.config/helix"
+    state: link
+  tags:
+    - wsl
