@@ -1,0 +1,8 @@
+- name: Symlink vscode config
+  file:
+    src: "{{ playbook_dir }}/config/vscode"
+    dest: "~/.config/Code/User"
+    state: link
+    force: yes
+  tags:
+    - vscode

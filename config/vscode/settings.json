@@ -1,0 +1,249 @@
+{
+  "pasteImage.insertPattern": "#image(\"${imageFileName}\")",
+  "editor.fontLigatures": true,
+  "editor.tabSize": 2,
+  "terminal.integrated.fontFamily": "Iosevka Nerd Font, Iosevka, Hack Nerd Font, Hack, Roboto Mono, Consolas",
+  "editor.fontFamily": "osevka Nerd Font, Iosevka, Hack Nerd Font, Hack, Roboto Mono, Consolas",
+  "editor.fontSize": 15,
+  "gitlens.codeLens.enabled": false,
+  "githubIssues.queries": [
+    {
+      "label": "My Issues",
+      "query": "default"
+    },
+    {
+      "label": "Created Issues",
+      "query": "author:${user} state:open repo:${owner}/${repository} sort:created-desc"
+    },
+    {
+      "label": "All Open Issues",
+      "query": "state:open repo:${owner}/${repository} sort:created-desc"
+    },
+    {
+      "label": "All Closed Issues",
+      "query": "state:closed repo:${owner}/${repository} sort:created-desc"
+    }
+  ],
+  "deno.path": "/home/sim/.deno/bin/deno",
+  "deno.enable": true,
+  "editor.formatOnSave": true,
+  "editor.semanticTokenColorCustomizations": {
+    "[Default Dark+]": {
+      "rules": {
+        "*.mutable": {
+          "underline": false
+        }
+      }
+    }
+  },
+  "git.autofetch": true,
+  "editor.minimap.enabled": false,
+  "editor.wordWrap": "on",
+  "deno.unstable": true,
+  "githubPullRequests.queries": [
+    {
+      "label": "Waiting For My Review",
+      "query": "is:open review-requested:${user}"
+    },
+    {
+      "label": "Assigned To Me",
+      "query": "is:open assignee:${user}"
+    },
+    {
+      "label": "Closed",
+      "query": "is:closed repo:${owner}/${repository} sort:created-desc"
+    }
+  ],
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true,
+    "source.fixAll": false
+  },
+  "explorer.confirmDelete": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[svelte]": {},
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "latex-workshop.bibtex-fields.sort.enabled": true,
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.outDir": "build",
+  "latex-workshop.synctex.afterBuild.enabled": true,
+  "latex-workshop.latex.recipe.default": "tectonic",
+  "latex-workshop.latex.tools": [
+    {
+      "name": "tectonic",
+      "command": "tectonic",
+      "args": [
+        "--outdir=%OUTDIR%",
+        "-Zshell-escape",
+        "-Zshell-escape-cwd=.",
+        "%DOC%.tex"
+      ],
+      "env": {}
+    }
+  ],
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.factorypath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/node_modules": true
+  },
+  "cmake.configureOnOpen": true,
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": true,
+    "scminput": false,
+    "yaml": true,
+    "c": false,
+    "latex": true,
+    "javascript": false,
+    "typescript": true,
+    "csharp": true,
+    "typst": true
+  },
+  "editor.cursorSmoothCaretAnimation": "on",
+  "errorLens.enabled": true,
+  "window.titleBarStyle": "custom",
+  "editor.bracketPairColorization.enabled": true,
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "path": [
+        "D:\\Programmer\\Git\\git-bash.exe"
+      ],
+      "source": "Git Bash"
+    }
+  },
+  "javascript.inlayHints.parameterNames.enabled": "literals",
+  "javascript.inlayHints.parameterTypes.enabled": true,
+  "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "javascript.inlayHints.variableTypes.enabled": true,
+  "typescript.inlayHints.parameterNames.enabled": "literals",
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "editor.inlayHints.fontSize": 13,
+  "latex-workshop.view.pdf.viewer": "tab",
+  "workbench.colorCustomizations": {
+    "[Base16 Default Dark]": {
+      "statusBar.background": "#181818",
+      "statusBar.debuggingBackground": "#282828",
+      "statusBar.debuggingForeground": "#ffffff",
+      "statusBar.noFolderBackground": "#181818",
+      "statusBar.foreground": "#ffffff"
+    }
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python",
+    "editor.formatOnType": true
+  },
+  "workbench.preferredDarkColorTheme": "Default Dark+",
+  "workbench.preferredLightColorTheme": "Default Light+ Experimental",
+  "window.autoDetectColorScheme": true,
+  "[latex]": {
+    "editor.defaultFormatter": "James-Yu.latex-workshop"
+  },
+  "[bibtex]": {
+    "editor.defaultFormatter": "James-Yu.latex-workshop"
+  },
+  "ltex.additionalRules.enablePickyRules": true,
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+  "notebook.markup.fontSize": 18,
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "[typescript]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+  "svelte.enable-ts-plugin": true,
+  "typeChallenges.workspaceFolder": "/home/sim/.typeChallenges",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.acceptSuggestionOnEnter": "off",
+  "[csharp]": {
+    "editor.defaultFormatter": "csharpier.csharpier-vscode"
+  },
+  "[jakt]": {
+    "editor.formatOnSave": false
+  },
+  // "[typst]": {
+  //   "editor.fontFamily": "Comic Mono",
+  // },
+  "dart.checkForSdkUpdates": false,
+  "errorLens.followCursor": "activeLine",
+  "testing.automaticallyOpenPeekView": "never",
+  "editor.stickyScroll.enabled": true,
+  "errorLens.enabledDiagnosticLevels": [
+    "error",
+    "warning"
+  ],
+  "githubPullRequests.pullBranch": "never",
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "omnisharp.enableEditorConfigSupport": true,
+  "omnisharp.enableRoslynAnalyzers": true,
+  "omnisharp.enableDecompilationSupport": true,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "debug.console.fontFamily": "Hack",
+  "extensions.autoUpdate": true,
+  "rust-analyzer.hover.actions.gotoTypeDef.enable": false,
+  "rust-analyzer.hover.actions.implementations.enable": false,
+  "rust-analyzer.hover.actions.enable": false,
+  "editor.hover.delay": 100,
+  "workbench.editor.enablePreview": false,
+  "workbench.startupEditor": "none",
+  "fileutils.inputBox.pathType": "workspace",
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "files.associations": {
+    "*.xel": "dart"
+  },
+  "umath.preview.position": "top",
+  "workbench.layoutControl.enabled": false,
+  "window.commandCenter": false,
+  "workbench.colorTheme": "Default Dark+",
+  "diffEditor.experimental.useVersion2": true,
+  "discord.detailsIdling": "Idling...",
+  "discord.lowerDetailsEditing": "Line {current_line}",
+  "diffEditor.renderSideBySide": false,
+  "rust-analyzer.rustfmt.rangeFormatting.enable": true,
+  "typst-lsp.exportPdf": "never",
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.iconTheme": "material-icon-theme",
+  "dotnet.codeLens.enableReferencesCodeLens": false,
+  "diffEditor.experimental.showMoves": true,
+  "git.ignoreRebaseWarning": true,
+  "editor.cursorSurroundingLines": 4,
+  "extensions.ignoreRecommendations": true,
+  "files.eol": "\n",
+  "diffEditor.hideUnchangedRegions.enabled": true,
+}
