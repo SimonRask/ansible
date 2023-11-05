@@ -7,6 +7,7 @@
 - name: Find fish path
   shell: which fish
   register: fish_path
+  ignore_errors: yes
   tags:
     - wsl
 
