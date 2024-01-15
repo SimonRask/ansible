@@ -4,17 +4,17 @@
     source_key: "./.ssh/id_rsa"
     dest_key: "~/.ssh/id_rsa"
   tasks:
-    - include: tasks/ssh.yml
-    - include: tasks/yay-setup.yml
-    - include: tasks/git-setup.yml
-    - include: tasks/packages.yml
-    - include: tasks/shell-setup.yml
-    - include: tasks/helix.yml
-    - include: tasks/vscode.yml
-    - include: tasks/neovim.yml
-    - include: tasks/node-setup.yml
-    - include: tasks/pop-shell-setup.yml
-    - include: tasks/desktop-preferences.yml
-    - include: tasks/firefox-gnome-theme.yml
-    - include: tasks/rust-setup.yml
-    - include: tasks/projects.yml
+    - include_tasks: tasks/ssh.yml
+    - include_tasks: tasks/yay-setup.yml
+    - include_tasks: tasks/git-setup.yml
+    - include_tasks: tasks/packages.yml
+    - include_tasks: tasks/shell-setup.yml
+    - include_tasks: tasks/helix.yml
+    - include_tasks: tasks/vscode.yml
+    - include_tasks: tasks/neovim.yml
+    - include_tasks: tasks/node-setup.yml
+    - include_tasks: tasks/pop-shell-setup.yml
+    - include_tasks: tasks/desktop-preferences.yml
+    - include_tasks: tasks/firefox-gnome-theme.yml
+    - include_tasks: tasks/rust-setup.yml
+    - include_tasks: tasks/projects.yml
