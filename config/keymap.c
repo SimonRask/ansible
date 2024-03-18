@@ -10,7 +10,7 @@
 #define SYMBOL 2
 #define LEFT 3
 #define RIGHT 4
-
+#define GAMING 5
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* ┌──────┬──────┬──────┬──────┬──────┬──────┐                ┌──────┬──────┬──────┬──────┬──────┬──────┐
@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [MISC] = LAYOUT_split_3x6_3(
         _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                                  KC_F6,   KC_F7,   KC_F8, KC_F9,   KC_F10, KC_F11,
         _______, KC_CAPS, _______, _______, KC_VOLU, KC_DEL,                                 KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_INS, KC_F12,
-        _______, _______, _______, KC_MUTE, KC_VOLD, _______,                                 KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_PSCR, _______,
+        _______, _______, _______, KC_MUTE, KC_VOLD, _______,                                 KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_PSCR, TO(GAMING),
                                         KC_MPRV, KC_MPLY, KC_MNXT,                     _______,  _______, _______ 
     ),
 
@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, DK_1,     DK_2,     DK_3,     DK_4,    DK_5,                     DK_6, DK_7,    DK_8,    DK_9,    DK_0,    _______,
         _______, DK_AT,  DK_EQL,  DK_EXLM,  OSL(LEFT),   DK_TILD,                  DK_HASH, DK_AMPR, DK_DQUO, DK_PIPE, DK_QUOT, _______,
         _______, DK_QUES,  DK_PERC,  DK_CIRC,  OSL(RIGHT),  DK_ASTR,                DK_PLUS, DK_DLR, DK_GRV, _______, _______, _______,
-                                         _______, TO(BASE), _______,         _______, KC_BSPC, TO(BASE)
+                                         _______, _______, _______,         _______, _______, TO(BASE)
     ),
 
     /* ┌──────┬──────┬──────┬──────┬──────┬──────┐                ┌──────┬──────┬──────┬──────┬──────┬──────┐
@@ -78,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______,  _______,  _______,  _______,  _______,                _______, _______, _______, _______, DK_LPRN, _______,
         _______, DK_LABK,  DK_SLSH,  DK_LBRC,  _______,  _______,                _______, _______, _______, _______, _______, _______,
         _______, _______,  _______,  DK_LCBR,  _______,  _______,                _______, _______, _______, _______, _______, _______,
-                                           _______, TO(BASE), _______,        _______, KC_BSPC, TO(BASE)
+                                           _______, _______, _______,        _______, _______, TO(BASE)
     ),
 
     /* ┌──────┬──────┬──────┬──────┬──────┬──────┐                ┌──────┬──────┬──────┬──────┬──────┬──────┐
@@ -95,6 +95,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______,  _______,  _______,  _______,  _______,                _______, _______, _______, _______, DK_RPRN, _______,
         _______, DK_RABK,  DK_BSLS,  DK_RBRC,  _______,  _______,                _______, _______, _______, _______, _______, _______,
         _______, _______,  _______,  DK_RCBR,  _______,  _______,                _______, _______, _______, _______, _______, _______,
-                                           _______, TO(BASE), _______,        _______, KC_BSPC, TO(BASE)
+                                           _______, _______, _______,        _______, KC_BSPC, TO(BASE)
+    ),
+
+
+
+    [GAMING] = LAYOUT_split_3x6_3(
+        KC_ESCAPE, _______, DK_G, DK_W, DK_E, DK_R,                                 DK_Y,    DK_U,    DK_I,    DK_O,    DK_P,    DK_ARNG,
+        KC_TAB,    KC_LSFT, DK_A, DK_S, DK_D, DK_2,                                 DK_H,    DK_J,    DK_K,    DK_L,    DK_AE, DK_OSTR,
+        _______,   KC_LCTL, DK_1, DK_F, DK_3, DK_B,                                 DK_N,    DK_M,    DK_COMM, DK_DOT,  DK_MINS, KC_LGUI,
+                                  DK_4, KC_SPC,  DK_V,                                 KC_ENT,  TO(BASE),TO(SYMBOL) 
     ),
 };
