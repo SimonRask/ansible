@@ -3,6 +3,7 @@ theme = "transparent_plus"
 [editor]
 mouse = true
 bufferline = "multiple"
+true-color = true
 
 [editor.soft-wrap]
 enable = true
@@ -20,7 +21,7 @@ hidden = false
 render = true
 
 [keys.insert]
-C-s = [":w", "normal_mode"]
+C-s = ["normal_mode", ":w"]
 
 [keys.normal]
 C-s = ":w"

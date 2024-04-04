@@ -13,6 +13,9 @@ set __fish_git_prompt_showupstream none
 set -g fish_prompt_pwd_dir_length 3
 set -gx CDPATH . ~ ~/dev ~/dev/mine ~/dev/others
 set -Ux nvm_default_version lts
+set -gx EDITOR "hx"
+set fzf_directory_opts --bind "ctrl-o:execute($EDITOR {} &> /dev/tty)"
+fzf_configure_bindings --directory=\cf --git_status=\cg
 
 function fish_prompt
     set_color green
@@ -101,3 +104,5 @@ function gh-pdf
     # Open the main.pdf
     evince "$download_path/PDF/main.pdf"
 end
+# Created by `pipx` on 2024-02-17 09:08:09
+set PATH $PATH /home/sim/.local/bin
