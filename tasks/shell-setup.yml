@@ -39,6 +39,7 @@
     - gazorby/fish-abbreviation-tips
     - jorgebucaran/nvm.fish
     - acomagu/fish-async-prompt
+    - PatrickF1/fzf.fish
   tags:
     - wsl
 

@@ -9,8 +9,6 @@
   with_items:
     - visual-studio-code-bin
     - gnome-shell-extension-caffeine-git
-    - gnome-shell-extension-blur-my-shell
-    - spotify-adblock-git
   tags:
     - desktop
 
@@ -24,6 +22,8 @@
       - foliate
       - ttc-iosevka
       - ttf-hack-nerd
+      - ttf-iosevka-nerd
+      - ttf-ms-win11-auto
       - xournalpp
   become: yes
   tags:
@@ -33,7 +33,7 @@
   community.general.pacman:
     name:
       - base-devel
-      - exa
+      - eza
       - fish
       - git
       - pdfslicer
@@ -43,6 +43,7 @@
       - neovim
       - xclip
       - ripgrep
+      - fzf
   become: yes
 
 

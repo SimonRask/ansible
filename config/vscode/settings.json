@@ -57,8 +57,8 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "editor.codeActionsOnSave": {
-    "source.organizeImports": true,
-    "source.fixAll": false
+    "source.organizeImports": "explicit",
+    "source.fixAll": "never"
   },
   "explorer.confirmDelete": false,
   "[javascript]": {
