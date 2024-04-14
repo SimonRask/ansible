@@ -5,6 +5,7 @@ name = "rust"
 # Try using [language.config.check] instead of [language-server.rust-analyzer.config.check]
 [language-server.rust-analyzer.config.check]
 command = "clippy"
+args = ["--", "-W clippy::unwrap_used", "-W clippy::expect_used", "-W clippy::pedantic", "-W clippy::nursery", "-Dwarnings"]
 
 [[language]]
 name = "typst"

@@ -9,6 +9,8 @@
   with_items:
     - visual-studio-code-bin
     - gnome-shell-extension-caffeine-git
+    - hyprshot
+    - hyprpicker
   tags:
     - desktop
 
@@ -25,6 +27,8 @@
       - ttf-iosevka-nerd
       - ttf-ms-win11-auto
       - xournalpp
+      - hyprlock
+      - hyprpaper
   become: yes
   tags:
     - desktop

@@ -1,0 +1,11 @@
+width=480
+height=720
+location=center
+mode=drun
+prompt=
+colors=colors
+allow_markup=true
+allow_images=true
+no_actions=true
+orientation=vertical
+hide_scroll=true

@@ -9,6 +9,7 @@
     - include_tasks: tasks/git-setup.yml
     - include_tasks: tasks/packages.yml
     - include_tasks: tasks/shell-setup.yml
+    - include_tasks: tasks/hypr.yml
     - include_tasks: tasks/helix.yml
     - include_tasks: tasks/vscode.yml
     - include_tasks: tasks/neovim.yml

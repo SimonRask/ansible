@@ -1,0 +1,16 @@
+- name: Symlink hypr config
+  file:
+    src: "{{ playbook_dir }}/config/hypr"
+    dest: "~/.config/hypr"
+    state: link
+  tags:
+    - desktop
+    - hypr
+- name: Symlink wofi config
+  file:
+    src: "{{ playbook_dir }}/config/wofi"
+    dest: "~/.config/wofi"
+    state: link
+  tags:
+    - desktop
+    - hypr
