@@ -11,6 +11,7 @@
     - gnome-shell-extension-caffeine-git
     - hyprshot
     - hyprpicker
+    - ttf-ms-win11-auto
   tags:
     - desktop
 
@@ -25,7 +26,6 @@
       - ttc-iosevka
       - ttf-hack-nerd
       - ttf-iosevka-nerd
-      - ttf-ms-win11-auto
       - xournalpp
       - hyprlock
       - hyprpaper
