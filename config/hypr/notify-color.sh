@@ -1,3 +1,3 @@
 #!/bin/bash
 color=$(hyprpicker --autocopy)
-notify-send "hyprpicker" "color pasted to clipboard: $color" -t 5000
+notify-send "COLOR" "Pasted $color to clipboard" -t 5000

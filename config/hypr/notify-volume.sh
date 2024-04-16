@@ -14,9 +14,9 @@ volume=$(echo $cent$volume)
 volume=$(echo $volume | grep -Eo '[1-9][0-9]*|0$')
 
 if [ -z "$muted" ]; then
-  export makoid=$(notify-send "volume" "$volume%" --hint int:value:$volume -t 1000 --print-id --replace-id=$previd)
+  export makoid=$(notify-send "VOLUME" "$volume%" --hint int:value:$volume -t 1000 --print-id --replace-id=$previd)
 else
-  export makoid=$(notify-send "volume" "<s>$volume%</s>" --hint int:value:$volume -t 1000 --print-id --replace-id=$previd)
+  export makoid=$(notify-send "VOLUME" "<s>$volume%</s>" --hint int:value:$volume -t 1000 --print-id --replace-id=$previd)
 fi
 
 # notify-send -t 1000 "$previd"

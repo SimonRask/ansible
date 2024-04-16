@@ -5,11 +5,6 @@ if [ ! -f $previd_path ]; then
 fi
 previd=$(cat "$previd_path")
 
-# brightness_path="/tmp/current_brightness.txt"
-# if [ ! -f $brightness_path ]; then
-#   echo "0" > $brightness_path
-# fi
-# brightness=$(cat "$brightness_path")
 brightness=$(brightnessctl get)
 brightness=$(echo "scale=2; $brightness * 100 / 255" | bc)
 brightness=${brightness%.*}
@@ -19,9 +14,9 @@ if [ -z "$brightness" ]; then
 fi
 
 if [ -z "$muted" ]; then
-  export makoid=$(notify-send "brightness" "$brightness%" --hint int:value:$brightness -t 1000 --print-id --replace-id=$previd)
+  export makoid=$(notify-send "BRIGHTNESS" "$brightness%" --hint int:value:$brightness -t 1000 --print-id --replace-id=$previd)
 else
-  export makoid=$(notify-send "brightness" "<s>$brightness%</s>" --hint int:value:$brightness -t 1000 --print-id --replace-id=$previd)
+  export makoid=$(notify-send "BRIGHTNESS" "<s>$brightness%</s>" --hint int:value:$brightness -t 1000 --print-id --replace-id=$previd)
 fi
 
 # notify-send -t 1000 "$previd"
