@@ -12,6 +12,7 @@
     - hyprshot
     - hyprpicker
     - ttf-ms-win11-auto
+    - google-chrome
   tags:
     - desktop
 
@@ -29,6 +30,8 @@
       - xournalpp
       - hyprlock
       - hyprpaper
+      - cpio
+      - mako
   become: yes
   tags:
     - desktop
@@ -48,6 +51,7 @@
       - xclip
       - ripgrep
       - fzf
+      - jq
   become: yes
 
 
