@@ -30,3 +30,13 @@ name = "typst"
 
 [language-server.typst-lsp]
 config = { exportPdf = "never" }
+
+[[language]]
+name = "python"
+language-servers = [ "pyright", "ruff" ]
+
+[language-server.ruff]
+command = "ruff-lsp"
+
+[language-server.ruff.config.settings]
+args = ["--ignore", "E501"]

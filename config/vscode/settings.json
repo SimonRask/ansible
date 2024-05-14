@@ -246,4 +246,5 @@
   "extensions.ignoreRecommendations": true,
   "files.eol": "\n",
   "diffEditor.hideUnchangedRegions.enabled": true,
+  "editor.inlayHints.enabled": "off",
 }
