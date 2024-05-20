@@ -10,7 +10,7 @@ set __fish_git_prompt_showdirtystate yes
 set __fish_git_prompt_showstashstate ''
 set __fish_git_prompt_showupstream none
 
-set -g fish_prompt_pwd_dir_length 3
+set -gx fish_prompt_pwd_dir_length 3
 set -gx CDPATH . ~ ~/dev ~/dev/mine ~/dev/others
 set -gx nvm_default_version lts
 set -gx EDITOR "hx"
@@ -92,17 +92,17 @@ end
 
 function gh-pdf
     set pr_number $argv[1]
-    
+
     set build_url (gh pr checks $pr_number | awk '{print $4}')
     set run_id (echo $build_url | grep -oP '(?<=runs/)\d+')
-    
+
     echo "Build URL: $build_url"
     echo "Run ID: $run_id"
 
     set download_path "/tmp/$run_id"
     mkdir -p $download_path
     gh run download $run_id --dir $download_path
-    
+
     # Open the main.pdf
     evince "$download_path/PDF/main.pdf"
 end
