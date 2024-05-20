@@ -25,11 +25,12 @@ name = "binary"
 program = "{0}"
 runInTerminal = false
 
+[language-server.tinymist]
+command = "tinymist"
+
 [[language]]
 name = "typst"
-
-[language-server.typst-lsp]
-config = { exportPdf = "never" }
+language-servers = ["tinymist"]
 
 [[language]]
 name = "python"
