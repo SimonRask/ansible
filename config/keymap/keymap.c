@@ -2,7 +2,7 @@
 
 // SPDX-License-Identifier: GPL-2.0
 
-#include "./config.h"
+#include QMK_KEYBOARD_H
 #include "keymap_danish.h"
 
 #define BASE 0
@@ -13,31 +13,6 @@
 #define GAMING 5
 #define MOUSE 6
 
-
-void dance_lctrl_finished(tap_dance_state_t *state, void *user_data) {
-  if (state->count == 1) {
-    register_code(KC_LCTL);
-  } else if (state->count == 2) {
-    layer_on(MOUSE);
-  }
-}
-
-void dance_lctrl_reset(tap_dance_state_t *state, void *user_data) {
-  if (state->count == 1) {
-    unregister_code(KC_LCTL);
-  } else if (state->count == 2) {
-    layer_off(MOUSE);
-  }
-}
-
-enum {
-    TD_LCTRL_LAYER = 1
-};
-
-tap_dance_action_t tap_dance_actions[] = {
-  [TD_LCTRL_LAYER] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_lctrl_finished, dance_lctrl_reset),
-
-};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* ┌──────┬──────┬──────┬──────┬──────┬──────┐                ┌──────┬──────┬──────┬──────┬──────┬──────┐
@@ -54,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,    DK_Q,    DK_W,    DK_E,    DK_R,    DK_T,                                 DK_Y,    DK_U,    DK_I,    DK_O,    DK_P,    DK_ARNG,
         KC_LSFT, DK_A,    DK_S,    DK_D,    DK_F,    DK_G,                                 DK_H,    DK_J,    DK_K,    DK_L,    DK_AE, DK_OSTR,
         KC_ESCAPE,   DK_Z,    DK_X,    DK_C,    DK_V,    DK_B,                                 DK_N,    DK_M,    DK_COMM, DK_DOT,  DK_MINS, KC_LGUI,
-                                            KC_LALT, KC_SPC, TD(TD_LCTRL_LAYER),                    KC_ENT, LT(MISC, KC_BSPC), TT(SYMBOL) 
+                                            KC_LALT, KC_SPC, KC_LCTL,                    KC_ENT, LT(MISC, KC_BSPC), TT(SYMBOL) 
     ),
 
     /* ┌──────┬──────┬──────┬──────┬──────┬──────┐                ┌──────┬──────┬──────┬──────┬──────┬──────┐
