@@ -70,12 +70,15 @@ module.exports = {
 				before: true
 			}
 		}),
-		R: {
-			command: "modalEditor.paste",
-			args: {
-				replace: true
+		R: [
+			"modalEditor.delete",
+			{
+				command: "modalEditor.paste",
+				args: {
+					before: true
+				}
 			}
-		},
+		],
 		"`": "modalEditor.toLowerCase",
 		"~": "modalEditor.toUpperCase",
 		// Replace selections
@@ -194,13 +197,16 @@ module.exports = {
 					before: true
 				}
 			},
-			R: {
-				command: "modalEditor.paste",
-				args: {
-					register: "",
-					replace: true
+			R: [
+				"modalEditor.delete",
+				{
+					command: "modalEditor.paste",
+					args: {
+						register: "",
+						before: true
+					}
 				}
-			},
+			],
 			f: "workbench.action.quickOpen",
 			a: "editor.action.quickFix",
 			r: "editor.action.rename",
